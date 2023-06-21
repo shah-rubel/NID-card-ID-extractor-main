@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Learning Based NID Number Recognizer</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="/banking-system.png" type="image/x-icon">
+
+  <style>
+    .preview-image {
+      max-width: 300px;
+      max-height: 300px;
+    }
+
+    .inner-div {
+      margin-top: 6rem;
+    }
+
+    /* Reset some default styles */
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      color: beige;
+    }
+
+    /* Body styles */
+    body {
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      /* Set font color to white */
+    }
+
+    /* Container styles */
+    .container {
+      margin: 0 auto;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    /* Heading styles */
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffffff;
+      margin-top: 0;
+    }
+
+    /* Image section styles */
+    .image-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .selected-image {
+      max-width: 300px;
+      max-height: 300px;
+    }
+
+    /* Form styles */
+    .form-section {
+      margin-top: 40px;
+    }
+
+    .label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .file-input {
+      border: 1px solid #d1d5db;
+      padding: 10px;
+      border-radius: 4px;
+      width: 100%;
+      margin-bottom: 10px;
+      color: #ffffff;
+      /* Set font color to white */
+      background-color: #2d3748;
+      /* Darker background color */
+    }
+
+    .submit-button {
+      background-color: #3b82f6;
+      color: #ffffff;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-button:hover {
+      background-color: #2563eb;
+    }
+
+    /* Output styles */
+    .output-section {
+      margin-top: 40px;
+    }
+
+    .output-heading {
+      font-size: 20px;
+      font-weight: bold;
+      color: #10b981;
+    }
+
+    .output-result {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    /* Webcam capture styles */
+    .webcam-section {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #video {
+      max-width: 100%;
+    }
+
+    #capture-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #3b82f6;
+      color: #ffffff;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #capture-btn:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+
+<body class="">
+  <div class="m-24 border-2 rounded-md shadow-md grid md:grid-cols-2 sm:grid-cols-1">
+    <div>
+      <img src="" alt="Selected Image" id="preview-image">
+    </div>
+    <div class="max-w-xl mx-auto py-8 px-4 inner-div">
+      <h1 class="text-3xl font-bold mb-4 italic">Generate NID Number From Image</h1>
+      <div class="mb-4">
+        <label for="image-upload" class="block font-medium mb-2">Upload Image:</label>
+        <input type="file" id="image-upload" class="border py-2 px-4 rounded w-full">
+      </div>
+      <div class="mb-4">
+        <button id="submit-btn" class="bg-blue-500 hover:bg-blue-600 font-medium py-2 px-4 rounded w-full">Submit</button>
+      </div>
+      <div class="mb-4 border rounded-md p-4">
+        <p class="font-bold">Selected Image:</p>
+        <p id="file-name" class="font-medium"></p>
+        <img id="preview-image" class="mt-2 preview-image" src="#" alt="Preview Image">
+      </div>
+      <div class="pb-24 font-bold">
+        <p class="text-xl text-teal-600">Output:</p>
+        <p id="nid-number" class="font-medium"></p>
+      </div>
+      <div class="webcam-section">
+        <button id="capture-btn" class="bg-blue-500 hover:bg-blue-600 font-medium py-2 px-4 rounded w-full">Capture Photo</button>
+        <video id="video" autoplay></video>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+
+</html>
